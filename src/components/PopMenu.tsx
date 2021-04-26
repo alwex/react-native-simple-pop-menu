@@ -1,5 +1,11 @@
 import { Portal } from '@gorhom/portal'
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, {
+  createElement,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import {
   Dimensions,
   Pressable,
@@ -89,7 +95,7 @@ export const PopMenu: React.FC<Props> = ({
 
   const menuContainer = useMemo(
     () =>
-      React.createElement(container, {
+      createElement(container, {
         style: styles.container,
         children: items.map((item, index) => {
           return (
