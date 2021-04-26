@@ -17,8 +17,10 @@ Features:
 * Simple to use popup/context menu
 * Support all in and out [Animatable](https://github.com/oblador/react-native-animatable) animations
 * Non opinionated and Extremely Customizable
+* Auto position the menu based on the anchor position
 * You provide your own item components
 * You provide your own container component
+* Fully typed with Typescript
 
 | Light | Dark |
 |---|---|
@@ -46,7 +48,7 @@ import {
 
 const menuItems1: PopMenuItem[] = [
   {
-    render: () => <Text>Actions</Text>,
+    render: () => <Text>Header</Text>,
   },
   {
     render: () => <Text>Item 1</Text>,
