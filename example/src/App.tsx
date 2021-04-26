@@ -1,6 +1,10 @@
 import React from 'react'
 import { useColorScheme } from 'react-native'
-import { PopMenu, PopMenuItem, PopMenuProvider } from 'react-native-pop-menu'
+import {
+  PopMenu,
+  PopMenuItem,
+  PopMenuProvider,
+} from 'react-native-simple-pop-menu'
 import styled, { ThemeProvider } from 'styled-components/native'
 import Button from './components/Button'
 import MenuContainer from './components/MenuContainer'
@@ -20,15 +24,15 @@ const menuItems1: PopMenuItem[] = [
   },
   {
     render: () => <MenuItem label='Buy me a coffee' icon='coffee' />,
-    onPress: () => console.log('testage'),
+    onPress: () => console.log('Coffee'),
   },
   {
     render: () => <MenuItem label='Duplicate' icon='copy' />,
-    onPress: () => console.log('testage'),
+    onPress: () => console.log('Duplicate'),
   },
   {
     render: () => <MenuItem label='Edit' icon='edit' />,
-    onPress: () => console.log('testage'),
+    onPress: () => console.log('Edit'),
   },
   {
     render: () => (
@@ -39,12 +43,13 @@ const menuItems1: PopMenuItem[] = [
         isLast={true}
       />
     ),
+    onPress: () => console.log('DELETE'),
   },
 ]
 
 const App = () => {
   const colorScheme = useColorScheme()
-  const theme = colorScheme === 'dark' ? dark : light
+  const theme = colorScheme === 'light' ? dark : light
 
   return (
     <ThemeProvider theme={theme}>
