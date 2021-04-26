@@ -1,9 +1,9 @@
 {
   "name": "react-native-simple-pop-menu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "homepage": "https://github.com/alwex/react-native-simple-pop-menu#readme",
-  "main": "lib/index.tsx",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Alexandre Guidet <guidet.alexandre@gmail.com>",
   "license": "MIT",
