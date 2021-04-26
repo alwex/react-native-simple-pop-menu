@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "homepage": "https://github.com/alwex/react-native-pop-menu#readme",
-  "main": "src/index.tsx",
+  "main": "lib/index.tsx",
   "types": "lib/index.d.ts",
   "author": "Alexandre Guidet <guidet.alexandre@gmail.com>",
   "license": "MIT",

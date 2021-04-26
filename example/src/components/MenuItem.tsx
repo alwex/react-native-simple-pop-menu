@@ -19,7 +19,7 @@ const Text = styled.Text<{ colorScheme: string }>`
 `
 
 const Spacer = styled.View`
-  width: 20px;
+  width: 30px;
 `
 
 interface Props {

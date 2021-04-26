@@ -6,7 +6,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
-  ViewStyle,
 } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 
@@ -22,8 +21,6 @@ interface Props {
   container?: any
   onPress?: () => void
   trigger?: 'press' | 'longPress'
-  minWidth?: number
-  containerStyle?: ViewStyle
   animationIn?: string
   animationOut?: string
 }
@@ -40,7 +37,6 @@ export const PopMenu: React.FC<Props> = ({
   container = View,
   trigger = 'press',
   onPress = () => {},
-  minWidth = 200,
   animationIn = 'zoomIn',
   animationOut = 'zoomOut',
 }) => {
@@ -91,25 +87,29 @@ export const PopMenu: React.FC<Props> = ({
       : { onPress: onOpen }
   }, [trigger, onPress, onOpen])
 
-  const menuContainer = React.createElement(container, {
-    style: styles.container,
-    children: items.map((item, index) => {
-      return (
-        <View key={index}>
-          {item.onPress && (
-            <TouchableOpacity
-              onPress={() => {
-                onClose(item.onPress)
-              }}
-            >
-              {item.render()}
-            </TouchableOpacity>
-          )}
-          {!item.onPress && <View>{item.render()}</View>}
-        </View>
-      )
-    }),
-  })
+  const menuContainer = useMemo(
+    () =>
+      React.createElement(container, {
+        style: styles.container,
+        children: items.map((item, index) => {
+          return (
+            <View key={index}>
+              {item.onPress && (
+                <TouchableOpacity
+                  onPress={() => {
+                    onClose(item.onPress)
+                  }}
+                >
+                  {item.render()}
+                </TouchableOpacity>
+              )}
+              {!item.onPress && <View>{item.render()}</View>}
+            </View>
+          )
+        }),
+      }),
+    [container, items, onClose]
+  )
 
   return (
     <>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useColorScheme } from 'react-native'
 import { PopMenu, PopMenuItem, PopMenuProvider } from 'react-native-pop-menu'
 import styled, { ThemeProvider } from 'styled-components/native'
 import Button from './components/Button'
@@ -42,8 +43,11 @@ const menuItems1: PopMenuItem[] = [
 ]
 
 const App = () => {
+  const colorScheme = useColorScheme()
+  const theme = colorScheme === 'dark' ? dark : light
+
   return (
-    <ThemeProvider theme={light}>
+    <ThemeProvider theme={theme}>
       <PopMenuProvider>
         <Container>
           <PopMenu items={menuItems1} container={MenuContainer}>
