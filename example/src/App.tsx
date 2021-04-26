@@ -2,9 +2,10 @@ import React from 'react'
 import { PopMenu, PopMenuItem, PopMenuProvider } from 'react-native-pop-menu'
 import styled, { ThemeProvider } from 'styled-components/native'
 import Button from './components/Button'
+import MenuContainer from './components/MenuContainer'
 import MenuHeader from './components/MenuHeader'
 import MenuItem from './components/MenuItem'
-import { light } from './theme'
+import { dark, light } from './theme'
 
 const Container = styled.View`
   flex: 1;
@@ -45,7 +46,7 @@ const App = () => {
     <ThemeProvider theme={light}>
       <PopMenuProvider>
         <Container>
-          <PopMenu items={menuItems1}>
+          <PopMenu items={menuItems1} container={MenuContainer}>
             <Button>PRESS ME</Button>
           </PopMenu>
         </Container>

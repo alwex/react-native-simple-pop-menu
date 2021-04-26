@@ -5,7 +5,7 @@ const Container = styled.View`
   align-items: center;
   padding: 10px;
   border-bottom-width: 0.5px;
-  border-bottom-color: ${(props) => props.theme.colors.dark};
+  border-bottom-color: ${(props) => props.theme.colors.text};
 `
 
 const Text = styled.Text`

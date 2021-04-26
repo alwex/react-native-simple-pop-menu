@@ -7,7 +7,7 @@ const Container = styled.View`
   border-radius: 8px;
 `
 const Text = styled.Text`
-  color: ${(props) => props.theme.colors.light};
+  color: white;
   font-size: 16px;
 `
 

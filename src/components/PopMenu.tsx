@@ -19,6 +19,7 @@ export interface PopMenuItem {
 
 interface Props {
   items: PopMenuItem[]
+  container?: any
   onPress?: () => void
   trigger?: 'press' | 'longPress'
   minWidth?: number
@@ -27,8 +28,8 @@ interface Props {
   animationOut?: string
 }
 
-const AnimatedPressable = Animatable.createAnimatableComponent(Pressable)
 const AnimatedView = Animatable.createAnimatableComponent(View)
+const AnimatedPressable = Animatable.createAnimatableComponent(Pressable)
 
 const fadeInDuration = 500
 const zoomInDuration = 250
@@ -36,6 +37,7 @@ const zoomInDuration = 250
 export const PopMenu: React.FC<Props> = ({
   children,
   items,
+  container = View,
   trigger = 'press',
   onPress = () => {},
   minWidth = 200,
@@ -68,21 +70,19 @@ export const PopMenu: React.FC<Props> = ({
         position.left = pageX
       }
 
-      position.minWidth = minWidth
-
       setPositionStyle(position)
       open()
     })
-  }, [ref, minWidth, open])
+  }, [ref, open])
 
   const onClose = useCallback(
     async (callback?: () => void) => {
-      menuRef.current.[animationOut](zoomInDuration)
+      menuRef.current[animationOut](zoomInDuration)
       callback && callback()
       await overlayRef.current?.fadeOut(fadeInDuration)
       close()
     },
-    [close]
+    [animationOut, close]
   )
 
   const pressableProps = useMemo(() => {
@@ -90,6 +90,26 @@ export const PopMenu: React.FC<Props> = ({
       ? { onPress: onPress, onLongPress: onOpen }
       : { onPress: onOpen }
   }, [trigger, onPress, onOpen])
+
+  const menuContainer = React.createElement(container, {
+    style: styles.container,
+    children: items.map((item, index) => {
+      return (
+        <View key={index}>
+          {item.onPress && (
+            <TouchableOpacity
+              onPress={() => {
+                onClose(item.onPress)
+              }}
+            >
+              {item.render()}
+            </TouchableOpacity>
+          )}
+          {!item.onPress && <View>{item.render()}</View>}
+        </View>
+      )
+    }),
+  })
 
   return (
     <>
@@ -108,25 +128,9 @@ export const PopMenu: React.FC<Props> = ({
             ref={menuRef}
             animation={animationIn}
             duration={zoomInDuration}
-            // useNativeDriver
-            style={[styles.container, positionStyle]}
+            style={[styles.wrapper, positionStyle]}
           >
-            {items.map((item, index) => {
-              return (
-                <View key={index}>
-                  {item.onPress && (
-                    <TouchableOpacity
-                      onPress={() => {
-                        onClose(item.onPress)
-                      }}
-                    >
-                      {item.render()}
-                    </TouchableOpacity>
-                  )}
-                  {!item.onPress && <View>{item.render()}</View>}
-                </View>
-              )
-            })}
+            {menuContainer}
           </AnimatedView>
         </Portal>
       )}
@@ -149,9 +153,11 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  container: {
+  wrapper: {
     zIndex: 1,
     position: 'absolute',
+  },
+  container: {
     backgroundColor: 'white',
     borderWidth: 0,
     borderRadius: 10,

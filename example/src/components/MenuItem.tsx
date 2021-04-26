@@ -7,7 +7,7 @@ const Container = styled.View<{ isLast: boolean }>`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-color: ${(props) => props.theme.colors.dark}
+  border-color: ${(props) => props.theme.colors.text}
   border-bottom-width: ${(props) => (props.isLast ? 0 : '0.5px')};
 `
 
@@ -16,6 +16,10 @@ const Text = styled.Text<{ colorScheme: string }>`
     props.colorScheme === 'danger'
       ? props.theme.colors.danger
       : props.theme.colors.text};
+`
+
+const Spacer = styled.View`
+  width: 20px;
 `
 
 interface Props {
@@ -37,6 +41,7 @@ const MenuItem: React.FC<Props> = ({
   return (
     <Container isLast={isLast}>
       <Text colorScheme={colorScheme}>{label}</Text>
+      <Spacer />
       <Icon name={icon} size={16} color={color} />
     </Container>
   )
