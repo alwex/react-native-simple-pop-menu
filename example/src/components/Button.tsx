@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components/native'
 
 const Container = styled.View`
-  background-color: teal;
+  background-color: ${(props) => props.theme.colors.primary};
   padding: 10px;
   border-radius: 8px;
 `
 const Text = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.colors.light};
   font-size: 16px;
 `
 

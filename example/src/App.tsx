@@ -1,10 +1,10 @@
 import React from 'react'
-import { Text } from 'react-native-animatable'
 import { PopMenu, PopMenuItem, PopMenuProvider } from 'react-native-pop-menu'
-import styled from 'styled-components/native'
+import styled, { ThemeProvider } from 'styled-components/native'
 import Button from './components/Button'
 import MenuHeader from './components/MenuHeader'
 import MenuItem from './components/MenuItem'
+import { light } from './theme'
 
 const Container = styled.View`
   flex: 1;
@@ -17,47 +17,40 @@ const menuItems1: PopMenuItem[] = [
     render: () => <MenuHeader>Actions</MenuHeader>,
   },
   {
-    render: () => (
-      <MenuItem icon='coffee'>
-        <Text>Buy me a coffee</Text>
-      </MenuItem>
-    ),
+    render: () => <MenuItem label='Buy me a coffee' icon='coffee' />,
+    onPress: () => console.log('testage'),
+  },
+  {
+    render: () => <MenuItem label='Duplicate' icon='copy' />,
+    onPress: () => console.log('testage'),
+  },
+  {
+    render: () => <MenuItem label='Edit' icon='edit' />,
     onPress: () => console.log('testage'),
   },
   {
     render: () => (
-      <MenuItem icon='copy'>
-        <Text>Duplicate</Text>
-      </MenuItem>
-    ),
-    onPress: () => console.log('testage'),
-  },
-  {
-    render: () => (
-      <MenuItem icon='edit'>
-        <Text>Edit</Text>
-      </MenuItem>
-    ),
-    onPress: () => console.log('testage'),
-  },
-  {
-    render: () => (
-      <MenuItem icon='trash'>
-        <Text>DELETE</Text>
-      </MenuItem>
+      <MenuItem
+        label='DELETE'
+        icon='trash'
+        colorScheme='danger'
+        isLast={true}
+      />
     ),
   },
 ]
 
 const App = () => {
   return (
-    <PopMenuProvider>
-      <Container>
-        <PopMenu items={menuItems1}>
-          <Button>PRESS ME</Button>
-        </PopMenu>
-      </Container>
-    </PopMenuProvider>
+    <ThemeProvider theme={light}>
+      <PopMenuProvider>
+        <Container>
+          <PopMenu items={menuItems1}>
+            <Button>PRESS ME</Button>
+          </PopMenu>
+        </Container>
+      </PopMenuProvider>
+    </ThemeProvider>
   )
 }
 
