@@ -49,7 +49,7 @@ const menuItems1: PopMenuItem[] = [
 
 const App = () => {
   const colorScheme = useColorScheme()
-  const theme = colorScheme === 'light' ? dark : light
+  const theme = colorScheme === 'light' ? light : light
 
   return (
     <ThemeProvider theme={theme}>
