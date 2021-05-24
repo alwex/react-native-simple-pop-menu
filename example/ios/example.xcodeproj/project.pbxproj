@@ -110,8 +110,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				6E91C93774DA48F05B65D72D /* [CP] Embed Pods Frameworks */,
 				8416EE945C64B9AEA4CA8DBD /* [CP] Copy Pods Resources */,
+				5BE74538A3DC6D051405D7C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,7 +180,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		6E91C93774DA48F05B65D72D /* [CP] Embed Pods Frameworks */ = {
+		5BE74538A3DC6D051405D7C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

@@ -5,6 +5,7 @@ const Container = styled.View`
   background-color: ${(props) => props.theme.colors.primary};
   padding: 10px;
   border-radius: 8px;
+  margin-vertical: 10px;
 `
 const Text = styled.Text`
   color: white;

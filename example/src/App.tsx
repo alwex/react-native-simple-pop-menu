@@ -6,7 +6,9 @@ import {
   PopMenuProvider,
 } from 'react-native-simple-pop-menu'
 import styled, { ThemeProvider } from 'styled-components/native'
+import BlurOverlay from './components/BlurOverlay'
 import Button from './components/Button'
+import CustomOverlay from './components/CustomOverlay'
 import MenuContainer from './components/MenuContainer'
 import MenuHeader from './components/MenuHeader'
 import MenuItem from './components/MenuItem'
@@ -14,7 +16,7 @@ import { dark, light } from './theme'
 
 const Container = styled.View`
   flex: 1;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 `
 
@@ -55,8 +57,17 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <PopMenuProvider>
         <Container>
-          <PopMenu items={menuItems1} container={MenuContainer}>
+          <PopMenu items={menuItems1}>
             <Button>PRESS ME</Button>
+          </PopMenu>
+          <PopMenu items={menuItems1} container={MenuContainer}>
+            <Button>WITH CUSTOM CONTAINER</Button>
+          </PopMenu>
+          <PopMenu items={menuItems1} overlay={CustomOverlay}>
+            <Button>WITH CUSTOM OVERLAY</Button>
+          </PopMenu>
+          <PopMenu items={menuItems1} overlay={BlurOverlay}>
+            <Button>WITH BLUR OVERLAY</Button>
           </PopMenu>
         </Container>
       </PopMenuProvider>

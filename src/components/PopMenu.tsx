@@ -14,7 +14,6 @@ import {
   View,
 } from 'react-native'
 import * as Animatable from 'react-native-animatable'
-
 import { useOpenable } from '../hook/useOpenable'
 
 export interface PopMenuItem {
@@ -25,6 +24,7 @@ export interface PopMenuItem {
 interface Props {
   items: PopMenuItem[]
   container?: any
+  overlay?: any
   onPress?: () => void
   trigger?: 'press' | 'longPress'
   animationIn?: string
@@ -41,6 +41,7 @@ export const PopMenu: React.FC<Props> = ({
   children,
   items,
   container = View,
+  overlay = View,
   trigger = 'press',
   onPress = () => {},
   animationIn = 'zoomIn',
@@ -117,19 +118,28 @@ export const PopMenu: React.FC<Props> = ({
     [container, items, onClose]
   )
 
+  const overlayComponent = useMemo(
+    () =>
+      createElement(overlay, {
+        style: styles.overlay,
+      }),
+    [overlay]
+  )
+
   return (
     <>
       {isOpen && (
         <Portal>
           <AnimatedPressable
-            ref={overlayRef}
             onPress={() => onClose()}
+            style={styles.overlayContainer}
             animation='fadeIn'
             duration={fadeInDuration}
             useNativeDriver
-            style={styles.overlay}
-          />
-
+            ref={overlayRef}
+          >
+            {overlayComponent}
+          </AnimatedPressable>
           <AnimatedView
             ref={menuRef}
             animation={animationIn}
@@ -150,6 +160,14 @@ export const PopMenu: React.FC<Props> = ({
 }
 
 const styles = StyleSheet.create({
+  overlayContainer: {
+    zIndex: 1,
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
   overlay: {
     zIndex: 1,
     position: 'absolute',
