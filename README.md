@@ -29,7 +29,7 @@ Features:
 
 ## Who uses React Native Simple Pop Menu
 
-<a href="https://blastworkout.app/">
+<a href="https://blastworkout.app?utm_source=github&utm_medium=whouse&utm_campaign=github&utm_id=rnspm">
   <img src="https://raw.githubusercontent.com/alwex/react-native-simple-pop-menu/main/assets/apps/blastworkout-logo.png" alt="Blast Workout" width="300" />
 </a>
 
