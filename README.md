@@ -30,7 +30,7 @@ Features:
 ## Who uses React Native Simple Pop Menu
 
 <a href="https://blastworkout.app/">
-  <img src="https://github.com/alwex/react-native-simple-pop-menu/raw/master/assets/apps/blastworkout-logo.png" alt="Blast Workout" width="300" />
+  <img src="https://raw.githubusercontent.com/alwex/react-native-simple-pop-menu/main/assets/apps/blastworkout-logo.png" alt="Blast Workout" width="300" />
 </a>
 
 _Does your company or app use React Native Simple Pop Menu? Open a pull request and add your logo/icon with link here!_
