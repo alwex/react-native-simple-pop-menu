@@ -14,30 +14,42 @@
 </p>
 
 Features:
-* Simple to use popup/context menu
-* Support all in and out [Animatable](https://github.com/oblador/react-native-animatable) animations
-* Non opinionated and Extremely Customizable
-* Auto position the menu based on the anchor position
-* You provide your own item components
-* You provide your own container component
-* Fully typed with Typescript
 
-| Light | Dark |
-|---|---|
-|![Pop menu demo](./.github/example-light.png)|![Pop menu demo](./.github/example-dark.png)|
+- Simple to use popup/context menu
+- Support all in and out [Animatable](https://github.com/oblador/react-native-animatable) animations
+- Non opinionated and Extremely Customizable
+- Auto position the menu based on the anchor position
+- You provide your own item components
+- You provide your own container component
+- Fully typed with Typescript
+
+| Light                                         | Dark                                         |
+| --------------------------------------------- | -------------------------------------------- |
+| ![Pop menu demo](./.github/example-light.png) | ![Pop menu demo](./.github/example-dark.png) |
+
+## Who uses React Native Simple Pop Menu
+
+<a href="https://blastworkout.app/">
+  <img src="https://github.com/alwex/react-native-simple-pop-menu/raw/master/assets/apps/blastworkout-logo.png" alt="Blast Workout" width="300" />
+</a>
+
+_Does your company or app use React Native Simple Pop Menu? Open a pull request and add your logo/icon with link here!_
 
 ## Installation
 
 ```
 npm install react-native-simple-pop-menu --save
 ```
+
 or
+
 ```
 yarn add react-native-simple-pop-menu
 ```
-## Usage
-Wrap your application inside `PopMenuProvider` and then simply use `PopMenu` component where you need it.
 
+## Usage
+
+Wrap your application inside `PopMenuProvider` and then simply use `PopMenu` component where you need it.
 
 ```JSX
 import {
@@ -73,13 +85,15 @@ export default App
 ```
 
 ## Advanced Usage
+
 Check the [example](https://github.com/alwex/react-native-pop-menu/blob/main/example/src/App.tsx) folder for more advanced usage
 
 ## Properties
- Prop                      | Description                                                                                                                                                                                                                                                                                                             | Default        |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| **`items`**               | Array of `PopMenuItem` 
-| **`container`**           | Menu Container (Optional)
-| **`trigger`**             | Menu Open trigger `press` or `longPress` | `press`
-| **`animationIn`**         | Opening Animation one of [Animatable](https://github.com/oblador/react-native-animatable) | `zoomIn`
-| **`animationOut`**        | Closing Animation one of [Animatable](https://github.com/oblador/react-native-animatable) | `zoomOut`
+
+| Prop               | Description                                                                               | Default   |
+| ------------------ | ----------------------------------------------------------------------------------------- | --------- |
+| **`items`**        | Array of `PopMenuItem`                                                                    |
+| **`container`**    | Menu Container (Optional)                                                                 |
+| **`trigger`**      | Menu Open trigger `press` or `longPress`                                                  | `press`   |
+| **`animationIn`**  | Opening Animation one of [Animatable](https://github.com/oblador/react-native-animatable) | `zoomIn`  |
+| **`animationOut`** | Closing Animation one of [Animatable](https://github.com/oblador/react-native-animatable) | `zoomOut` |
